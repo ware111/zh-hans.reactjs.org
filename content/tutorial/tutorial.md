@@ -1152,7 +1152,7 @@ class Game extends React.Component {
 
 接下来，我们还要修改 Game 组件的 `handleClick` 方法，当你点击方格的时候触发该方法。
 
-新添加的 `stepNumber` state 用于给用户展示当前的步骤。每当我们落下一颗新棋子的时候，我们需要调用 `this.setState` 并传入参数 `stepNumber: history.length`，以更新 `stepNumber`。这就保证了保证每走一步 `stepNumber` 会跟着改变。
+新添加的 `stepNumber` state 用于给用户展示当前的步骤。每当我们落下一颗新棋子的时候，我们需要调用 `this.setState` 并传入参数 `stepNumber: history.length`，以更新 `stepNumber`。这就保证了每走一步 `stepNumber` 会跟着改变。
 
 我们还把读取 `this.state.history` 换成了读取 `this.state.history.slice(0, this.state.stepNumber + 1)` 的值。如果我们“回到过去”，然后再走一步新棋子，原来的“未来”历史记录就不正确了，这个替换可以保证我们把这些“未来”的不正确的历史记录丢弃掉。
 
